@@ -163,7 +163,10 @@ static int do_mtkautoboot(cmd_tbl_t *cmdtp, int flag, int argc,
 	if (i >= 5 && i < 30) {
 #endif
 		printf("Enter web failsafe mode by pressing reset button\n");
-		run_command("httpd", 0);
+		run_command("nand erase 100000 20000", 0);
+                run_command("nand read 84000000 160000 20000", 0);
+                run_command("nand write 84000000 100000 20000", 0);
+		run_command("nand erase 21c0000 3000000", 0);
 	}
 
 #ifdef MT7621_BUTTON_WPS
@@ -210,7 +213,7 @@ static int do_mtkautoboot(cmd_tbl_t *cmdtp, int flag, int argc,
 	}
 
 	snprintf(cmd, sizeof(cmd), "bootmenu %u", delay);
-	run_command(cmd, 0);
+	run_command(mtkboardboot, 0);
 
 	return 0;
 }
