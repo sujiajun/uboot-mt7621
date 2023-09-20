@@ -107,7 +107,7 @@ esac
 
 echo "Set baud rate: $9"
 if [ "$9" = '57600' ]; then
-	echo "CONFIG_BAUDRATE=57600" >> ${DEFCONFIG}
+	echo "CONFIG_BAUDRATE=28800" >> ${DEFCONFIG}
 else
 	echo "CONFIG_BAUDRATE=115200" >> ${DEFCONFIG}
 fi
