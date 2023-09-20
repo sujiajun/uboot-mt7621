@@ -213,7 +213,7 @@ static int do_mtkautoboot(cmd_tbl_t *cmdtp, int flag, int argc,
 	}
 
 	snprintf(cmd, sizeof(cmd), "bootmenu %u", delay);
-	run_command(mtkboardboot, 0);
+	run_command("mtkboardboot", 0);
 
 	return 0;
 }
